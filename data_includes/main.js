@@ -22,7 +22,7 @@ newTrial('consent',
 
 newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
-        .settings.css('margin','80px')
+        .settings.css('margin-left','80px')
         .print()
     ,
 
