@@ -35,9 +35,9 @@ newTrial('intro' ,
     newKey('').callback(
         newTimer(5).start().wait()
         ,
-        getTextInput('ProlificID').test.text('')
-        .success(getButton('Next').disable())
-        .failure(getButton('Next').enable())
+        getTextInput('ProlificID').test.text(/\w/)
+        .success(getButton('Next').enable())
+        .failure(getButton('Next').disable())
     )
     ,
     newButton('Next','Next')
