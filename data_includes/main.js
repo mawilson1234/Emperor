@@ -39,7 +39,8 @@ newTrial("intro" ,
         .disable()
     ,
 
-    getButton('Next').wait(getTextInput('ProlificID').testNot.text('')).enable().wait()
+    getTextInput('ProlificID').wait(),
+    getButton('Next').enable().wait()
 )
 
 newTrial("instruction",
