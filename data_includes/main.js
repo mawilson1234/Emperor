@@ -57,11 +57,17 @@ newTrial('instruction',
 )
 
 PennController.Template('practice.csv', variable => ['trial_prac',
-        'EPDashedSentence', {s: variable.Sentence, mode: 'speeded acceptability', display: 'in place',
-                           blankText: '+', wordTime: 325, wordPauseTime: 0},
-        'QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
-                           randomOrder: false, presentHorizontally: true, timeout: 2000},
-        'Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}
+        newController('EPDashedSentence', {s: variable.Sentence, mode: 'speeded acceptability', display: 'in place',
+                           blankText: '+', wordTime: 325, wordPauseTime: 0})
+        .print()
+        .log()
+        ,
+        newController('QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
+                           randomOrder: false, presentHorizontally: true, timeout: 2000})
+        .print()
+        .log(),
+        newController('Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'})
+        .print()
     ]
 )
 
