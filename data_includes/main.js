@@ -57,6 +57,7 @@ newTrial('instruction',
 )
 
 PennController.Template('practice.csv', variable => ['trial_prac',
+    newTrial(
         newButton('Start reading')
             .print()
             .wait()
@@ -67,11 +68,14 @@ PennController.Template('practice.csv', variable => ['trial_prac',
             .log()
             .wait()
             .remove()
+        newButton("I'm done")
+            .print()
+            .wait()
 /*variable.Sentence, mode: 'speeded acceptability', display: 'in place', blankText: '+', wordTime: 325, wordPauseTime: 0}*/
         /*,'QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
                            randomOrder: false, presentHorizontally: true, timeout: 2000},
         'Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}*/
-    ]
+   )]
 )
 
 newTrial('instruction2',
