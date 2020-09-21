@@ -4,7 +4,7 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
-Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_fillers', 'trial_whif'), 'feedback', SendResults(), 'bye')
+Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2', /*rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_fillers', 'trial_whif'), */'feedback', SendResults(), 'bye')
 
 newTrial( 'consent' ,
     newText('CONSENT GOES HERE')
@@ -76,6 +76,28 @@ newTrial('instruction2',
         .settings.css('margin', '80px')
         .print()
         .wait()
+)
+
+PennController.Template('agr-att.csv', variable => ['trial_agr-att',
+
+    newController('EPDashedSentence', 
+        {s: variable.Sentence, 
+         mode: 'speeded acceptability', 
+         display: 'in place',
+         blankText: '+', 
+         wordTime: 325,
+         wordPauseTime: 0})
+        .print()
+        .log()
+    ,
+    newController('QuestionAlt', 
+        {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
+                           randomOrder: false, presentHorizontally: true, timeout: 2000})
+        .print()
+        .log(),
+
+    newController('Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}).print()
+    ]
 )
 
 PennController('feedback',
