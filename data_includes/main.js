@@ -37,9 +37,9 @@ newTrial("intro" ,
         .settings.css("margin", "80px")
         .print()
         .disable()
-        .wait(getTextInput('ProlificID').testNot.text(''))
-        .enable()
-        .wait()
+    ,
+    getTextInput('ProlificID').wait(),
+    getButton('Next').enable()
 )
 
 newTrial("instruction",
