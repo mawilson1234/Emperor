@@ -10,7 +10,7 @@ Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'
 
 newTrial('consent',
     newText('CONSENT GOES HERE')
-        .settings.css('margin-left', '80px')
+        .settings.css('margin-left', '50px')
         .print()
     ,
 
@@ -22,12 +22,12 @@ newTrial('consent',
 
 newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
-        .settings.css('margin-left','80px')
+        .settings.css('margin-left','50px')
         .print()
     ,
     newTextInput('ProlificID')
         .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
-                    .settings.css('margin-left', '80px')
+                    .settings.css('margin-left', '50px')
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
         .settings.css('width', '30%')
@@ -54,7 +54,7 @@ newTrial('intro',
 
 newTrial('instruction',
     newText('Instr', 'INSTRUCTIONS GO HERE')
-        .settings.css('margin-left', '80px')
+        .settings.css('margin-left', '50px')
         .print()
     ,
     newButton('Click','Click here to begin practice trials!')
@@ -88,7 +88,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
 
 newTrial('instruction2',
     newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE')
-        .settings.css('margin-left', '80px')
+        .settings.css('margin-left', '50px')
         .print()
     ,
 
@@ -241,7 +241,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
-        .settings.css('margin-left', '80px')
+        .settings.css('margin-left', '50px')
         .print()
     ,
     newTextInput('feedback', '')
@@ -253,26 +253,24 @@ PennController('feedback',
     ,
     newText('bot_instructions',
             '<p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
-        .settings.css('margin-left', '80px')
+        .settings.css('margin-left', '50px')
         .print()
     ,
-    newTextInput('bot_check')
-        .cssContainer('text-align', 'center')
-        .log()
+    newTextInput('botcheck')
         .lines(10)
-        .size(400, 200)
         .print()
+        .log()
     ,
-     newFunction( () =>
-        $("textarea.PennController-bot_check").bind('keyup', e=>
-            getTextInput('bot_check').test.text(/\w/)
-              .success( getButton('Send').enable() )
-              .failure( getButton('Send').disable() )
+    newFunction( () =>
+        $("textarea.PennController-botcheck").bind('keyup', e=>
+            getTextInput('botcheck').test.text(/\w/)
+              .success( getButton('Next').enable() )
+              .failure( getButton('Next').disable() )
               ._runPromises()
         )
     ).call()
     ,
-    newButton('Send', 'Send Results')
+    newButton('Next','Next')
         .center()
         .print()
         .disable()
