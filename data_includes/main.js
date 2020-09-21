@@ -57,7 +57,7 @@ newTrial("instruction",
 )
 
 PennController.Template("practice.csv", variable => ["trial_prac",
-        "DashedSentence", {s: variable.Sentence, mode: "speeded acceptability", display: "in place",
+        "EPDashedSentence", {s: variable.Sentence, mode: "speeded acceptability", display: "in place",
                            blankText: '+', wordTime: 325, wordPauseTime: 0},
         'Question', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
                            randomOrder: false, presentHorizontally: true, timeout: 2000},
