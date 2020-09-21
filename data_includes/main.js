@@ -78,28 +78,6 @@ newTrial('instruction2',
         .wait()
 )
 
-PennController.Template('agr-att.csv', variable => ['trial_agr-att',
-
-    newController('EPDashedSentence', 
-        {s: variable.Sentence, 
-         mode: 'speeded acceptability', 
-         display: 'in place',
-         blankText: '+', 
-         wordTime: 325,
-         wordPauseTime: 0})
-        .print()
-        .log()
-    ,
-    newController('QuestionAlt', 
-        {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
-                           randomOrder: false, presentHorizontally: true, timeout: 2000})
-        .print()
-        .log(),
-
-    newController('Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}).print()
-    ]
-)
-
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
         .print()
