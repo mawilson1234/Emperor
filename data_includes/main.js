@@ -4,7 +4,7 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( "setcounter" );
 
-Sequence("setcounter", "consent", "intro", "instruction", randomize("trial_prac"), "instruction2", /*rshuffle("trial_agr-att", "trial_that", "trial_experiencer", "trial_fillers", "trial_whif"), "feedback",*/ SendResults(), "bye")
+Sequence("setcounter", "consent", "intro", "instruction", randomize("trial_prac"), "instruction2", rshuffle("trial_agr-att", "trial_that", "trial_experiencer", "trial_fillers", "trial_whif"), "feedback", SendResults(), "bye")
 
 newTrial( "consent" ,
     newText("CONSENT GOES HERE")
@@ -36,7 +36,7 @@ newTrial("intro" ,
         .center()
         .settings.css("margin", "80px")
         .print()
-        .wait()
+        .wait(getTextInput('ProlificID').test.complete())
 )
 
 newTrial("instruction",
@@ -74,6 +74,33 @@ newTrial("instruction2",
         .settings.css("margin", "80px")
         .print()
         .wait()
+)
+
+PennController("feedback",
+    newText("feedback_instruction","Do you have any feedback on the experiment or how you were making your decisions? (Optional)")
+        .print()
+    ,
+    newTextInput("feedback", "")
+        .log()
+        .lines(10)
+        .size(400, 200)
+        .print()
+    ,
+
+    newText('bot_instruction', '(This question is to confirm that you are not a bot.) Describe something interesting you might see on the way to the mall.')
+        .print()
+    ,
+    newTextInput('bot_check', '')
+        .log()
+        .lines(10)
+        .size(400, 200)
+        .print()
+    ,
+
+    newButton("send", "Send results")
+        .center()
+        .print()
+        .wait(getTextInput('bot_check').test.complete())
 )
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
