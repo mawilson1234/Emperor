@@ -270,6 +270,10 @@ PennController('feedback',
         )
     ).call()
     ,
+    newText('<p>')
+        .center()
+        .print()
+    ,
     newButton('Send','Send Results')
         .center()
         .print()
