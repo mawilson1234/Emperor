@@ -38,8 +38,8 @@ newTrial("intro" ,
         .print()
         .disable()
     ,
-    getTextInput('ProlificID').wait(),
-    getButton('Next').enable().wait()
+
+    getButton('Next').wait(getTextInput('ProlificID').testNot.text('')).enable().wait()
 )
 
 newTrial("instruction",
