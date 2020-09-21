@@ -60,6 +60,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
         newController('EPDashedSentence', 
             {s: 'Testing testing' }/*variable.Sentence, mode: 'speeded acceptability', display: 'in place', blankText: '+', wordTime: 325, wordPauseTime: 0}*/)
         .print()
+        .wait()
         .log()
 
         /*,'QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
