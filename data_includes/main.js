@@ -1,5 +1,5 @@
 PennController.ResetPrefix(null) // Shorten command names (keep this line here)
-PennController.DebugOff()
+//PennController.DebugOff()
 
 //var counterOverride = 1;
 PennController.SetCounter( "setcounter" );
@@ -55,8 +55,8 @@ newTrial("instruction",
 PennController.Template("practice.csv", variable => ["trial_prac",
         "DashedSentence", {s: variable.Sentence, mode: "speeded acceptability", display: "in place",
                            blankText: '+', wordTime: 225, wordPauseTime: 100},
-        ['Question', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
-                           randomOrder: false, presentHorizontally: true, timeout: 2000}]
+        'Question', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
+                           randomOrder: false, presentHorizontally: true, timeout: 2000}
                            
     ]
 )
