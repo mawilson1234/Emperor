@@ -177,13 +177,7 @@ PennController.Template('experiencer.csv', variable => ['trial_experiencer',
     'PennController', PennController()
         .log(variable.Group)
         .log(variable.Item)
-        .log(variable.Verb Type)
         .log(variable.Verb)
-        .log(variable.Sentence Voice)
-        .log(variable.Verb Frequency)
-        .log(variable.Verb Length)
-        .log(variable.Emotional Valence)
-        .log(variable.EV Pair Type)
         .log(variable.Sentence)
    ]
 )
@@ -237,7 +231,6 @@ PennController.Template('whif.csv', variable => ['trial_whif',
         .log(variable.Group)
         .log(variable.Item)
         .log(variable.Structure)
-        .log(variable.Gap Position)
         .log(variable.Sentence)
    ]
 )
