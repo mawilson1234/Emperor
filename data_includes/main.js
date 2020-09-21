@@ -57,7 +57,7 @@ newTrial('instruction',
 )
 
 PennController.Template('practice.csv', variable => ['trial_prac',
-        newController('EPDashedSentence', 
+        newController('DashedSentence', 
             {s: variable.Sentence, mode: 'speeded acceptability', display: 'in place', blankText: '+', wordTime: 325, wordPauseTime: 0})
         .print()
         .log()
