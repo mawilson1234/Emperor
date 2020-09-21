@@ -54,9 +54,10 @@ newTrial("instruction",
 
 PennController.Template("practice.csv", variable => ["trial_prac",
         "DashedSentence", {s: variable.Sentence, mode: "speeded acceptability", display: "in place",
-                           q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
-                           randomOrder: false, presentHorizontally: true, blankText: '+',
-                           wordTime: 225, wordPauseTime: 100, timeout: 2000}
+                           blankText: '+', wordTime: 225, wordPauseTime: 100},
+        ['Question', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
+                           randomOrder: false, presentHorizontally: true, timeout: 2000}]
+                           
     ]
 )
 
@@ -70,7 +71,6 @@ newTrial("instruction2",
     newButton("Click","Click here to begin the experiment")
         .center()
         .settings.css("margin", "80px")
-        .settings.size(300, 16)
         .print()
         .wait()
 )
