@@ -32,13 +32,14 @@ newTrial('intro' ,
         .log()
     ,
 
-    newKey('').callback(
-        newTimer(5).start().wait()
-        ,
-        getTextInput('ProlificID').test.text(/\w/)
-        .success(getButton('Next').enable())
-        .failure(getButton('Next').disable())
-    )
+    newFunction(() =>
+        $('textarea.PennController-ProlificID').bind('keyup', e=>
+            getTextInput('ProlificID').test.text(/\w/)
+                .success(getButton('Next').enable())
+                .failure(getButton('Next').disable())
+                ._runPromises();
+        )
+    ).call()
     ,
     newButton('Next','Next')
         .center()
