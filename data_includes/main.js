@@ -4,7 +4,7 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
-Sequence('setcounter', 'consent', 'intro', 'instruction', /*randomize('trial_prac')*/, 'instruction2',/*
+Sequence('setcounter', 'consent', 'intro', 'instruction', /*randomize('trial_prac'),*/ 'instruction2',/*
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),*/
          'feedback', SendResults(), 'bye')
 
