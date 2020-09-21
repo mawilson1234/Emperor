@@ -27,7 +27,7 @@ newTrial('intro',
     ,
     newTextInput('ProlificID')
         .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
-                    .settings.css('margin-left', '50px')
+                    .settings.css('margin-left', '80px')
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
         .settings.css('width', '30%')
@@ -244,7 +244,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
-        .settings.css('margin', '50px')
+        .settings.css('margin', '80px')
         .print()
     ,
     newTextInput('feedback', '')
@@ -256,7 +256,7 @@ PennController('feedback',
     ,
     newText('bot_instructions',
             '<p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
-        .settings.css('margin', '50px')
+        .settings.css('margin', '80px')
         .print()
     ,
     newTextInput('bot_check')
