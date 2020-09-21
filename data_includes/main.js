@@ -10,7 +10,7 @@ Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'
 
 newTrial('consent',
     newText('CONSENT GOES HERE')
-        .settings.css('margin', '80px')
+        .settings.css('margin-left', '80px')
         .print()
     ,
 
@@ -22,7 +22,7 @@ newTrial('consent',
 
 newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
-        .settings.css('margin','80px')
+        .settings.css('margin-left','80px')
         .print()
     ,
     newTextInput('ProlificID')
@@ -47,7 +47,6 @@ newTrial('intro',
     ,
     newButton('Next','Next')
         .center()
-        .settings.css('margin', '80px')
         .print()
         .disable()
         .wait()
@@ -55,12 +54,11 @@ newTrial('intro',
 
 newTrial('instruction',
     newText('Instr', 'INSTRUCTIONS GO HERE')
-        .settings.css('margin', '80px')
+        .settings.css('margin-left', '80px')
         .print()
     ,
     newButton('Click','Click here to begin practice trials!')
         .center()
-        .settings.css('margin', '80px')
         .print()
         .wait()
 )
@@ -90,13 +88,12 @@ PennController.Template('practice.csv', variable => ['trial_prac',
 
 newTrial('instruction2',
     newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE')
-        .settings.css('margin', '80px')
+        .settings.css('margin-left', '80px')
         .print()
     ,
 
     newButton('Click','Click here to begin the experiment')
         .center()
-        .settings.css('margin', '80px')
         .print()
         .wait()
 )
@@ -244,7 +241,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
-        .settings.css('margin', '80px')
+        .settings.css('margin-left', '80px')
         .print()
     ,
     newTextInput('feedback', '')
@@ -256,7 +253,7 @@ PennController('feedback',
     ,
     newText('bot_instructions',
             '<p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
-        .settings.css('margin', '80px')
+        .settings.css('margin-left', '80px')
         .print()
     ,
     newTextInput('bot_check')
