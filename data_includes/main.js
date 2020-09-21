@@ -4,12 +4,12 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
-Sequence('setcounter', 'consent', 'intro', 'instruction', /*randomize('trial_prac'),*/ 'instruction2',/*
-         rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),*/
+Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2',
+         rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
          'feedback', SendResults(), 'bye')
 
 newTrial('consent',
-    newText('CONSENT GOES HERE')
+    newText('CONSENT GOES HERE<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -21,7 +21,7 @@ newTrial('consent',
 )
 
 newTrial('intro',
-    newText('INSTRUCTIONS GO HERE')
+    newText('INSTRUCTIONS GO HERE<br /><br />')
         .settings.css('margin-left','50px')
         .print()
     ,
@@ -35,7 +35,6 @@ newTrial('intro',
         .print()
         .log()
     ,
-
     newFunction( () =>
         $("textarea.PennController-ProlificID").bind('keyup', e=>
             getTextInput('ProlificID').test.text(/\w/)
@@ -45,6 +44,10 @@ newTrial('intro',
         )
     ).call()
     ,
+    newText('<br />')
+        .center()
+        .print()
+    ,
     newButton('Next','Next')
         .center()
         .print()
@@ -53,7 +56,7 @@ newTrial('intro',
 )
 
 newTrial('instruction',
-    newText('Instr', 'INSTRUCTIONS GO HERE')
+    newText('Instr', 'INSTRUCTIONS GO HERE<br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -87,7 +90,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
 )
 
 newTrial('instruction2',
-    newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE')
+    newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE<br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -98,7 +101,7 @@ newTrial('instruction2',
         .wait()
 )
 
-/*PennController.Template('agr-att.csv', variable => ['trial_agr-att',
+PennController.Template('agr-att.csv', variable => ['trial_agr-att',
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -237,7 +240,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
         .log(variable.Gap Position)
         .log(variable.Sentence)
    ]
-)*/
+)
 
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)<br /><br />')
