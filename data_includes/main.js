@@ -14,9 +14,6 @@ newTrial( "consent" ,
 
     newButton("Next","Next")
         .center()
-        .settings.css("font-size", "2em")
-        .settings.css("margin", "80px")
-        .settings.size(500, 48)
         .print()
         .wait()
 )
@@ -34,12 +31,10 @@ newTrial("intro" ,
         .print()
         .log()
     ,
-    
+
     newButton("Next","Next")
         .center()
-        .settings.css("font-size", "2em")
         .settings.css("margin", "80px")
-        .settings.size(500, 48)
         .print()
         .wait()
 )
@@ -53,7 +48,6 @@ newTrial("instruction",
     newButton("Click","Click here to begin practice trials!")
         .center()
         .settings.css("margin", "80px")
-        .settings.size(300, 16)
         .print()
         .wait()
 )
