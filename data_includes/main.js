@@ -31,7 +31,7 @@ newTrial('intro',
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
         .settings.css('width', '30%')
-        .settings.css('height', '12pt')
+        .settings.css('height', '14pt')
         .print()
         .log()
     ,
