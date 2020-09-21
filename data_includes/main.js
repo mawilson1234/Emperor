@@ -4,7 +4,7 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
-Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2', /*rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_fillers', 'trial_whif'), */'feedback', SendResults(), 'bye')
+Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2')
 
 newTrial( 'consent' ,
     newText('CONSENT GOES HERE')
@@ -77,7 +77,7 @@ newTrial('instruction2',
         .print()
         .wait()
 )
-
+/*
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
         .print()
@@ -116,5 +116,5 @@ newTrial('bye' ,
     newButton()
         .wait()  // Wait for a click on a non-displayed button = wait here forever
 )
-.setOption('countsForProgressBar' , false)
+.setOption('countsForProgressBar' , false)*/
 // Make sure the progress bar is full upon reaching this last (non-)trial
