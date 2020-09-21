@@ -73,6 +73,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
     'Separator', {transfer: 2000, 
                   normalMessage: '+', 
                   errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
     'PennController', PennController()
         .log(variable.Sentence)
    ]
