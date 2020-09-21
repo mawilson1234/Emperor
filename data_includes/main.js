@@ -31,16 +31,20 @@ newTrial('intro' ,
         .print()
         .log()
     ,
-
+    newKey('').callback(
+        newTimer(5).start().wait()
+        getTextInput('ProlificID').test.text(/\w/)
+            .success(getButton('Next').enable())
+            .failure(getButton('Next').disable())
+    )
+    ,
+    
     newButton('Next','Next')
         .center()
         .settings.css('margin', '80px')
         .print()
         .disable()
-    ,
-
-    getTextInput('ProlificID').wait(),
-    getButton('Next').enable().wait()
+        .wait()
 )
 
 newTrial('instruction',
