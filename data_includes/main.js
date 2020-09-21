@@ -240,7 +240,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 )*/
 
 PennController('feedback',
-    newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)<p>')
+    newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -251,7 +251,7 @@ PennController('feedback',
         .print()
     ,
     newText('bot_instructions',
-            '<br /><br />Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.<br />')
+            '<br /><br />Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
