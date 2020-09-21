@@ -29,9 +29,8 @@ newTrial('intro',
         .before(newText('ID', 'Your Prolific ID:<p>')
                     .settings.css('margin-left', '50px')
                     .settings.css('margin-right', '3px')
-                    .settings.css('vertical-align', 'middle'))
+                    .settings.css('vertical-align', 'top'))
         .settings.css('width', '30%')
-        .settings.css('vertical-align', 'middle')
         .print()
         .log()
     ,
