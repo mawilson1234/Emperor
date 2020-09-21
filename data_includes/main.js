@@ -4,9 +4,11 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
-Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2')
+Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2',
+         rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
+         'feedback', SendResults(), 'bye')
 
-newTrial( 'consent' ,
+newTrial('consent',
     newText('CONSENT GOES HERE')
         .settings.css('margin','50px')
         .print()
@@ -98,6 +100,147 @@ newTrial('instruction2',
         .wait()
 )
 
+PennController.Template('agr-att.csv', variable => ['trial_agr-att',
+    'EPDashedSentence', {s: variable.Sentence, 
+                         mode: 'speeded acceptability', 
+                         display: 'in place', 
+                         blankText: '+', 
+                         wordTime: 325, 
+                         wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
+    'PennController', PennController()
+        .log(variable.Group)
+        .log(variable.Item)
+        .log(variable.Gram)
+        .log(variable.Match)
+        .log(variable.Comp)
+        .log(variable.Sentence)
+   ]
+)
+
+PennController.Template('that.csv', variable => ['trial_that',
+    'EPDashedSentence', {s: variable.Sentence, 
+                         mode: 'speeded acceptability', 
+                         display: 'in place', 
+                         blankText: '+', 
+                         wordTime: 325, 
+                         wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
+    'PennController', PennController()
+        .log(variable.Group)
+        .log(variable.Item)
+        .log(variable.Extraction)
+        .log(variable.Comp)
+        .log(variable.Sentence)
+   ]
+)
+
+PennController.Template('experiencer.csv', variable => ['trial_experiencer',
+    'EPDashedSentence', {s: variable.Sentence, 
+                         mode: 'speeded acceptability', 
+                         display: 'in place', 
+                         blankText: '+', 
+                         wordTime: 325, 
+                         wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
+    'PennController', PennController()
+        .log(variable.Group)
+        .log(variable.Item)
+        .log(variable.Verb Type)
+        .log(variable.Verb)
+        .log(variable.Sentence Voice)
+        .log(variable.Verb Frequency)
+        .log(variable.Verb Length)
+        .log(variable.Emotional Valence)
+        .log(variable.EV Pair Type)
+        .log(variable.Sentence)
+   ]
+)
+
+PennController.Template('fillers.csv', variable => ['trial_filler',
+    'EPDashedSentence', {s: variable.Sentence, 
+                         mode: 'speeded acceptability', 
+                         display: 'in place', 
+                         blankText: '+', 
+                         wordTime: 325, 
+                         wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
+    'PennController', PennController()
+        .log(variable.Group)
+        .log(variable.Item)
+        .log(variable.Gram)
+        .log(variable.Type)
+        .log(variable.Sentence)
+   ]
+)
+
+PennController.Template('whif.csv', variable => ['trial_whif',
+    'EPDashedSentence', {s: variable.Sentence, 
+                         mode: 'speeded acceptability', 
+                         display: 'in place', 
+                         blankText: '+', 
+                         wordTime: 325, 
+                         wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    ,
+    'PennController', PennController()
+        .log(variable.Group)
+        .log(variable.Item)
+        .log(variable.Structure)
+        .log(variable.Gap Position)
+        .log(variable.Sentence)
+   ]
+)
+
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
         .print()
@@ -109,17 +252,22 @@ PennController('feedback',
         .print()
     ,
 
-    newText('bot_instruction', '(This question is to confirm that you are not a bot.) Describe something interesting you might see on the way to the mall.')
-        .print()
-    ,
-    newTextInput('bot_check', '')
+    newTextInput('bot_instruction', 'Respond to the following prompt to confirm that you are not a bot: describe something interesting you might see on the way to the mall.')
         .log()
         .lines(10)
         .size(400, 200)
         .print()
     ,
-
-    newButton('send', 'Send results')
+     newFunction( () =>
+        $("textarea.PennController-bot_instruction").bind('keyup', e=>
+            getTextInput('bot_instruction').test.text(/\w/)
+              .success( getButton('Send').enable() )
+              .failure( getButton('Next').disable() )
+              ._runPromises()
+        )
+    ).call()
+    ,
+    newButton('send', 'Send Results')
         .center()
         .print()
         .disable()
@@ -130,7 +278,7 @@ PennController('feedback',
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
 newTrial('bye' ,
-    newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=728AA2CF">https://app.prolific.co/submissions/complete?cc=728AA2CF</a>.')
+    newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">https://app.prolific.co/submissions/complete?cc=XXXXXXX</a>.')
         .print(),
         
     newButton()
