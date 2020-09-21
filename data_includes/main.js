@@ -37,7 +37,7 @@ newTrial('intro' ,
             getTextInput('ProlificID').test.text(/\w/)
               .success( getButton('Next').enable() )
               .failure( getButton('Next').disable() )
-              ._runPromises();
+              ._runPromises()
         )
     ).call()
     ,
