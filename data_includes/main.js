@@ -22,7 +22,7 @@ newTrial('consent',
 
 newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
-        .settings.css('margin','50px')
+        .settings.css('margin','80px')
         .print()
     ,
 
@@ -246,16 +246,18 @@ PennController('feedback',
         .print()
     ,
     newTextInput('feedback', '')
-        .center()
+        .cssContainer('text-align', 'center')
         .log()
         .lines(10)
         .size(400, 200)
         .print()
     ,
-
+    newText('bot_instructions',
+            'Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
+        .settings.css('margin', '50px')
+    ,
     newTextInput('bot_check')
-        .before(newText('ID', 'Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.').settings.css('margin', '50px'))
-        .center()
+        .cssContainer('text-align', 'center')
         .log()
         .lines(10)
         .size(400, 200)
@@ -271,7 +273,7 @@ PennController('feedback',
     ).call()
     ,
     newButton('Send', 'Send Results')
-        .center()
+        .settings.css()
         .print()
         .disable()
         .wait(getTextInput('bot_check').testNot.text(''))
