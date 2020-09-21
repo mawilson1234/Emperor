@@ -55,7 +55,7 @@ newTrial('intro',
 )
 
 newTrial('instruction',
-    newText('Instr', 'INSTRUCTIONS GO HERE<br />')
+    newText('Instr', 'INSTRUCTIONS GO HERE<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -89,7 +89,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
 )
 
 newTrial('instruction2',
-    newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE<br />')
+    newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
