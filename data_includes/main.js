@@ -61,7 +61,7 @@ PennController.Template("practice.csv", variable => ["trial_prac",
                            blankText: '+', wordTime: 325, wordPauseTime: 0},
         'QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
                            randomOrder: false, presentHorizontally: true, timeout: 2000},
-        'Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}
+        'SeparatorAlt', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}
                         
     ]
 )
