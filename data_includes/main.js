@@ -246,6 +246,7 @@ PennController('feedback',
         .print()
     ,
     newTextInput('feedback', '')
+        .center()
         .log()
         .lines(10)
         .size(400, 200)
@@ -254,6 +255,7 @@ PennController('feedback',
 
     newTextInput('bot_check')
         .before(newText('ID', 'Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.').settings.css('margin', '50px'))
+        .center()
         .log()
         .lines(10)
         .size(400, 200)
@@ -263,12 +265,12 @@ PennController('feedback',
         $("textarea.PennController-bot_check").bind('keyup', e=>
             getTextInput('bot_check').test.text(/\w/)
               .success( getButton('Send').enable() )
-              .failure( getButton('Next').disable() )
+              .failure( getButton('Send').disable() )
               ._runPromises()
         )
     ).call()
     ,
-    newButton('send', 'Send Results')
+    newButton('Send', 'Send Results')
         .center()
         .print()
         .disable()
