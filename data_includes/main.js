@@ -39,7 +39,7 @@ newTrial("intro" ,
         .disable()
     ,
     getTextInput('ProlificID').wait(),
-    getButton('Next').enable()
+    getButton('Next').enable().wait()
 )
 
 newTrial("instruction",
