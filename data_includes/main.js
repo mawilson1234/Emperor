@@ -33,8 +33,8 @@ newTrial('intro' ,
     ,
 
     newFunction( () =>
-        $("textarea.PennController-testinput").bind('keyup', e=>
-            getTextInput('test_input').test.text(/\w/)
+        $("textarea.PennController-ProlificID").bind('keyup', e=>
+            getTextInput('ProlificID').test.text(/\w/)
               .success( getButton('Next').enable() )
               .failure( getButton('Next').disable() )
               ._runPromises();
