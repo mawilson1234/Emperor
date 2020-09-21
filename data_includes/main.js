@@ -251,7 +251,7 @@ PennController('feedback',
         .print()
     ,
     newText('bot_instructions',
-            '<p><p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.<p>')
+            '<br /><br />Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.<br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -270,7 +270,7 @@ PennController('feedback',
         )
     ).call()
     ,
-    newText('<p>')
+    newText('<br />')
         .center()
         .print()
     ,
