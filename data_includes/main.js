@@ -56,24 +56,25 @@ newTrial('instruction',
         .wait()
 )
 
-newTrial.Template('practice.csv', variable => ['trial_prac',
-        newButton('Start reading')
-            .print()
-            .wait()
-            .remove()
-        ,
-        newController('DashedSentence', {s: variable.Sentence})
-            .print()
-            .log()
-            .wait()
-            .remove()
-        newButton("I'm done")
-            .print()
-            .wait()
-/*variable.Sentence, mode: 'speeded acceptability', display: 'in place', blankText: '+', wordTime: 325, wordPauseTime: 0}*/
-        /*,'QuestionAlt', {q: 'Was the sentence grammatical?', as: [['f', 'Yes'], ['j', 'No']],
-                           randomOrder: false, presentHorizontally: true, timeout: 2000},
-        'Separator', {transfer: 2000, normalMessage: '+', errorMessage: 'Timed out. Please respond more quickly.'}*/
+PennController.Template('practice.csv', variable => ['trial_prac',
+    'DashedSentence', {s: variable.Sentence, 
+                       mode: 'speeded acceptability', 
+                       display: 'in place', 
+                       blankText: '+', 
+                       wordTime: 325, 
+                       wordPauseTime: 0}
+    ,
+    'QuestionAlt', {q: 'Was the sentence grammatical?', 
+                    as: [['f', 'Yes'], ['j', 'No']], 
+                    randomOrder: false, 
+                    presentHorizontally: true, 
+                    timeout: 2000}
+    ,
+    'Separator', {transfer: 2000, 
+                  normalMessage: '+', 
+                  errorMessage: 'Timed out. Please respond more quickly.'}
+    'PennController', PennController()
+        .log(variable.Sentence)
    ]
 )
 
