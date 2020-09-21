@@ -243,6 +243,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 
 PennController('feedback',
     newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
+        .settings.css('margin', '50px')
         .print()
     ,
     newTextInput('feedback', '')
