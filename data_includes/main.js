@@ -58,7 +58,6 @@ newTrial('instruction',
         .settings.css('margin', '80px')
         .print()
     ,
-
     newButton('Click','Click here to begin practice trials!')
         .center()
         .settings.css('margin', '80px')
@@ -256,8 +255,9 @@ PennController('feedback',
         .print()
     ,
     newText('bot_instructions',
-            'Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
+            '<p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
         .settings.css('margin', '50px')
+        .print()
     ,
     newTextInput('bot_check')
         .cssContainer('text-align', 'center')
