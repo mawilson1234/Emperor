@@ -22,12 +22,12 @@ newTrial('consent',
 
 newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
-        .settings.css('margin-left','80px')
+        .settings.css('margin','80px')
         .print()
     ,
 
     newTextInput('ProlificID')
-        .before(newText('ID', 'Your Prolific ID:<p>').settings.css('margin', '50px'))
+        .before(newText('ID', 'Your Prolific ID:<p>').settings.css('margin-left', '50px'))
         .settings.css('width', '30%')
         .print()
         .log()
