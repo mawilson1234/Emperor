@@ -29,7 +29,6 @@ newTrial('intro',
     newTextInput('ProlificID')
         .before(newText('ID', 'Your Prolific ID:<p>').settings.css('margin', '50px'))
         .settings.css('width', '30%')
-        .settings.css('margin', 'auto')
         .print()
         .log()
     ,
