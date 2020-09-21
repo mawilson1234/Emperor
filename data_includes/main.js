@@ -36,7 +36,10 @@ newTrial("intro" ,
         .center()
         .settings.css("margin", "80px")
         .print()
+        .disable()
         .wait(getTextInput('ProlificID').testNot.text(''))
+        .enable()
+        .wait()
 )
 
 newTrial("instruction",
@@ -100,7 +103,10 @@ PennController("feedback",
     newButton("send", "Send results")
         .center()
         .print()
+        .disable()
         .wait(getTextInput('bot_check').testNot.text(''))
+        .enable()
+        .wait()
 )
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
