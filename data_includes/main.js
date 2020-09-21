@@ -240,7 +240,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
 )*/
 
 PennController('feedback',
-    newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)')
+    newText('feedback_instruction','Do you have any feedback on the experiment or how you were making your decisions? (Optional)<p>')
         .settings.css('margin-left', '50px')
         .print()
     ,
@@ -248,15 +248,15 @@ PennController('feedback',
         .cssContainer('text-align', 'center')
         .log()
         .lines(10)
-        .size(400, 200)
         .print()
     ,
     newText('bot_instructions',
-            '<p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.')
+            '<p><p>Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.<p>')
         .settings.css('margin-left', '50px')
         .print()
     ,
     newTextInput('botcheck')
+        .cssContainer('text-align', 'center')
         .lines(10)
         .print()
         .log()
@@ -264,13 +264,13 @@ PennController('feedback',
     newFunction( () =>
         $("textarea.PennController-botcheck").bind('keyup', e=>
             getTextInput('botcheck').test.text(/\w/)
-              .success( getButton('Next').enable() )
-              .failure( getButton('Next').disable() )
+              .success( getButton('Send').enable() )
+              .failure( getButton('Send').disable() )
               ._runPromises()
         )
     ).call()
     ,
-    newButton('Next','Next')
+    newButton('Send','Send Results')
         .center()
         .print()
         .disable()
