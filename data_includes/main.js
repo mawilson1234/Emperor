@@ -20,7 +20,7 @@ newTrial('consent',
         .wait()
 )
 
-newTrial('intro' ,
+newTrial('intro',
     newText('INSTRUCTIONS GO HERE')
         .settings.css('margin','50px')
         .print()
@@ -252,15 +252,16 @@ PennController('feedback',
         .print()
     ,
 
-    newTextInput('bot_instruction', 'Respond to the following prompt to confirm that you are not a bot: describe something interesting you might see on the way to the mall.')
+    newTextInput('bot_check')
+        .before(newText('ID', 'Respond to the following prompt to show that you are not a bot: describe something interesting you\'d see while driving to the mall.').settings.css('margin', '50px'))
         .log()
         .lines(10)
         .size(400, 200)
         .print()
     ,
      newFunction( () =>
-        $("textarea.PennController-bot_instruction").bind('keyup', e=>
-            getTextInput('bot_instruction').test.text(/\w/)
+        $("textarea.PennController-bot_check").bind('keyup', e=>
+            getTextInput('bot_check').test.text(/\w/)
               .success( getButton('Send').enable() )
               .failure( getButton('Next').disable() )
               ._runPromises()
