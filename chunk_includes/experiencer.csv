@@ -1,4 +1,4 @@
-Group,Item,Verb Type,Verb,Sentence Voice,Sentence,Verb Frequency,Verb Length,Emotional Valence,EV Pair Type
+Group,Item,VerbType,Verb,SentenceVoice,Sentence,VerbFrequency,VerbLength,EmotionalValence,EVPairType
 A,55,SubjExp,appreciate,Active,That's the actor that the director particularly appreciates because of his dramatic emotional bearing.,4861,11,Positive,PN
 B,55,ObjExp,bother,Active,That's the actor that the director particularly bothers because of his dramatic emotional bearing.,5102,7,Negative,PN
 C,55,SubjExp,appreciate,Passive,That's the director that the actor is particularly appreciated by because of his dramatic emotional bearing.,4861,11,Positive,PN

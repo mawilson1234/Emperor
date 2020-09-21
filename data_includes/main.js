@@ -1,7 +1,6 @@
 PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //PennController.DebugOff()
 
-//var counterOverride = 1;
 PennController.SetCounter( 'setcounter' );
 
 Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'), 'instruction2',
@@ -177,7 +176,13 @@ PennController.Template('experiencer.csv', variable => ['trial_experiencer',
     'PennController', PennController()
         .log(variable.Group)
         .log(variable.Item)
+        .log(variable.VerbType)
         .log(variable.Verb)
+        .log(variable.SentenceVoice)
+        .log(variable.VerbFrequency)
+        .log(variable.VerbLength)
+        .log(variable.EmotionalValence)
+        .log(variable.EVPairType)
         .log(variable.Sentence)
    ]
 )
@@ -231,6 +236,7 @@ PennController.Template('whif.csv', variable => ['trial_whif',
         .log(variable.Group)
         .log(variable.Item)
         .log(variable.Structure)
+        .log(variable.GapPosition)
         .log(variable.Sentence)
    ]
 )
