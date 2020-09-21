@@ -63,8 +63,7 @@ PennController.Template('practice.csv', variable => ['trial_prac',
                    display: 'in place',
                    blankText: '+', 
                    wordTime: 325, 
-                   wordPauseTime: 0}
-    )
+                   wordPauseTime: 0})
     .print()
     .log()
     ,
