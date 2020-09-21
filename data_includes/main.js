@@ -10,7 +10,7 @@ Sequence('setcounter', 'consent', 'intro', 'instruction', randomize('trial_prac'
 
 newTrial('consent',
     newText('CONSENT GOES HERE')
-        .settings.css('margin','50px')
+        .settings.css('margin', '80px')
         .print()
     ,
 
@@ -276,11 +276,9 @@ PennController('feedback',
     ).call()
     ,
     newButton('Send', 'Send Results')
-        .settings.css()
+        .center()
         .print()
         .disable()
-        .wait(getTextInput('bot_check').testNot.text(''))
-        .enable()
         .wait()
 )
 
