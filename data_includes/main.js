@@ -5,7 +5,7 @@ PennController.SetCounter('setcounter');
 
 Sequence(/*'setcounter', 'consent', 'instruction', randomize('trial_prac'), 'instruction2',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback', 'botcheck', SendResults(), 'recordID', 'bye')
+         */'feedback', 'botcheck', 'recordID', sendResults(), 'bye')
 
 newHtml('consent', 'consent.html')
 
@@ -220,7 +220,7 @@ PennController('feedback',
         .print()
     ,
     newButton('Next','Next')
-        .before(newText('<br />').print())
+        .before(newText('<br /><br />').print())
         .center()
         .print()
         .disable()
@@ -274,7 +274,7 @@ newTrial('recordID',
                     .settings.css('margin-left', '50px')
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
-        .settings.css('width', '30%')
+        .settings.css('width', '20%')
         .settings.css('height', '14pt')
         .print()
         .log()
