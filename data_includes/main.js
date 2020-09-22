@@ -292,8 +292,7 @@ PennController('feedback',
         .center()
         .print()
         .disable()
-        .wait(getTextInput('botcheck').testNot.text(''))
-        .wait(getDropDown('device').test.selected())
+        .wait()
 )
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
