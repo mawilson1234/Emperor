@@ -272,6 +272,7 @@ PennController('feedback',
         .add('Windows laptop or desktop', 'Apple Macintosh laptop or desktop',
              'Chrome OS laptop or desktop', 'Unix/Linux laptop or desktop',
              'Other OS laptop or desktop', 'Other device')
+        .center()
         .print()
     ,
     newFunction( () =>
