@@ -276,7 +276,7 @@ PennController('feedback',
         .print()
     ,
     newFunction( () =>
-        $('dropdown.PennController-device').bind('click', e=>
+        $('dropdown.PennController-device').bind('mousedown', e=>
             getDropDown('device').test.selected()
             .success( getButton('Send').enable() )
             .failure( getButton('Send').disable() )
