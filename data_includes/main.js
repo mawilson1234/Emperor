@@ -5,7 +5,7 @@ PennController.SetCounter('setcounter');
 
 Sequence(/*'setcounter', 'consent', 'recordID', 'instruction', randomize('trial_prac'), 'instruction2',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback'/*, SendResults(), 'bye'*/)
+         */'feedback', 'botcheck'/*,SendResults(), 'bye'*/)
 
 newHtml('consent', 'consent.html')
 
@@ -243,6 +243,35 @@ PennController('feedback',
         .print()
     ,
 
+    newText('device_instructions', '<br /><br />What device/OS did you use to complete the experiment?<br /><br />')
+        .settings.css('margin-left', '50px')
+        .print()
+    ,
+    newDropDown('device', 'Choose your device/OS')
+        .add('Windows laptop or desktop', 'Apple Macintosh laptop or desktop',
+             'Chrome OS laptop or desktop', 'Unix/Linux laptop or desktop',
+             'Other OS laptop or desktop', 'Other device')
+        .center()
+        .print()
+    ,
+    newText('<br /><br />')
+        .print()
+    ,
+    newButton('Next','Next')
+        .center()
+        .print()
+        .disable()
+    ,
+    getDropDown('device')
+        .wait()
+    ,
+    getButton('Next')
+        .enable()
+        .wait()
+    ,
+)
+
+PennController('botcheck',
     newText('bot_instructions',
             '<br /><br />Imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
@@ -263,33 +292,11 @@ PennController('feedback',
         )
     ).call()
     ,
-
-    newText('device_instructions', '<br /><br />What device/OS did you use to complete the experiment?<br /><br />')
-        .settings.css('margin-left', '50px')
-        .print()
-    ,
-    newDropDown('device', 'Choose your device/OS')
-        .add('Windows laptop or desktop', 'Apple Macintosh laptop or desktop',
-             'Chrome OS laptop or desktop', 'Unix/Linux laptop or desktop',
-             'Other OS laptop or desktop', 'Other device')
+    newButton('Send', 'Send Results')
         .center()
-        .print()
-    ,
-    newText('<br /><br />')
-        .print()
-    ,
-    newButton('Send','Send Results')
-        .center()
-        .print()
         .disable()
-    ,
-    getDropDown('device')
+        .print()
         .wait()
-    ,
-    getButton('Send')
-        .enable()
-        .wait()
-    ,
 )
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
