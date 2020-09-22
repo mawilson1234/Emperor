@@ -292,7 +292,9 @@ PennController('botcheck',
         )
     ).call()
     ,
+
     newButton('Send', 'Send Results')
+        .before(newText('<br /><br />').center().print())
         .center()
         .disable()
         .print()
