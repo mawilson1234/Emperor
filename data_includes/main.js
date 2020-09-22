@@ -10,7 +10,7 @@ function SepWithN(sep, main, n) {
         let sep = arrays[0];
         let main = arrays[1];
 
-        if (main.length < = 1)
+        if (main.length <= 1)
             return main
         else {
             let newArray = [];
