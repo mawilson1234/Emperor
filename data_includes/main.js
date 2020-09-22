@@ -1,16 +1,47 @@
 PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //PennController.DebugOff()
 
+function SepWithN(sep, main, n) {
+    this.args = [sep,main];
+
+    this.run = function(arrays) {
+        assert(arrays.length == 2, "Wrong number of arguments (or bad argument) to SepWithN");
+        assert(parseInt(n) > 0, "N must be a positive number");
+        let sep = arrays[0];
+        let main = arrays[1];
+
+        if (main.length < = 1)
+            return main
+        else {
+            let newArray = [];
+            while (main.length){
+                for (let i = 0; i < n && main.length>0; i++)
+                    newArray.push(main.pop());
+                for (let j = 0; j < sep.length; ++j)
+                    newArray.push(sep[j]);
+            }
+            return newArray;
+        }
+    }
+}
+function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }
+
 PennController.SetCounter('setcounter');
 
-Sequence(/*'setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 
-         */randomize('trial_prac')/*, 'post-practice',
-         rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         'feedback', 'botcheck', 'recordID', SendResults(), 'bye'*/)
+Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
+    randomize('trial_prac'), 'post-practice',
+    sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),
+    'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
 
 newHtml('consent', 'consent.html')
 
 newHtml('instructions1', 'instructions1.html')
+
+newHtml('instructions2', 'instructions2.html')
+
+newHtml('instructions3', 'instructions3.html')
+
+newHtml('instructions4', 'instructions4.html')
 
 Template('practice.csv', variable => ['trial_prac',
     'Separator', {transfer: 1000,
@@ -50,7 +81,21 @@ newTrial('post-practice',
         .wait()
 )
 
+newTrial('break',
+    newText('You may now take a short break. Click below when you are ready to return to the experiment.')
+        .center()
+        .print()
+    ,
+    newButton('click', 'Click here to return to the experiment')
+        .center()
+        .print()
+        .wait()
+)
+
 Template('agr-att.csv', variable => ['trial_agr-att',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -64,8 +109,8 @@ Template('agr-att.csv', variable => ['trial_agr-att',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
@@ -79,6 +124,9 @@ Template('agr-att.csv', variable => ['trial_agr-att',
 )
 
 Template('that.csv', variable => ['trial_that',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -92,8 +140,8 @@ Template('that.csv', variable => ['trial_that',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
@@ -106,6 +154,9 @@ Template('that.csv', variable => ['trial_that',
 )
 
 Template('experiencer.csv', variable => ['trial_experiencer',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -119,8 +170,8 @@ Template('experiencer.csv', variable => ['trial_experiencer',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
@@ -138,6 +189,9 @@ Template('experiencer.csv', variable => ['trial_experiencer',
 )
 
 Template('fillers.csv', variable => ['trial_filler',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -151,8 +205,8 @@ Template('fillers.csv', variable => ['trial_filler',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
@@ -165,6 +219,9 @@ Template('fillers.csv', variable => ['trial_filler',
 )
 
 Template('whif.csv', variable => ['trial_whif',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -178,8 +235,8 @@ Template('whif.csv', variable => ['trial_whif',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
