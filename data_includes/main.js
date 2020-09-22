@@ -3,46 +3,11 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 
 PennController.SetCounter('setcounter');
 
-Sequence(/*'setcounter', 'consent', 'recordID', 'instruction', randomize('trial_prac'), 'instruction2',
+Sequence(/*'setcounter', 'consent', 'instruction', randomize('trial_prac'), 'instruction2',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback', 'botcheck'/*,SendResults(), 'bye'*/)
+         */'feedback', 'botcheck', SendResults(), 'recordID', 'bye')
 
 newHtml('consent', 'consent.html')
-
-newTrial('recordID',
-    newText('Please enter your Prolific ID here: <br /><br />')
-        .settings.css('margin-left','50px')
-        .print()
-    ,
-    newTextInput('ProlificID')
-        .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
-                    .settings.css('margin-left', '50px')
-                    .settings.css('vertical-align', 'middle')
-                    .settings.css('height', '20pt'))
-        .settings.css('width', '30%')
-        .settings.css('height', '14pt')
-        .print()
-        .log()
-    ,
-    newFunction( () =>
-        $("textarea.PennController-ProlificID").bind('keyup', e=>
-            getTextInput('ProlificID').test.text(/\w/)
-              .success( getButton('Next').enable() )
-              .failure( getButton('Next').disable() )
-              ._runPromises()
-        )
-    ).call()
-    ,
-    newText('<br />')
-        .center()
-        .print()
-    ,
-    newButton('Next','Next')
-        .center()
-        .print()
-        .disable()
-        .wait()
-)
 
 Template('practice.csv', variable => ['trial_prac',
     'EPDashedSentence', {s: variable.Sentence, 
@@ -284,18 +249,50 @@ PennController('botcheck',
     newFunction( () =>
         $("textarea.PennController-botcheck").bind('keyup', e=>
             getTextInput('botcheck').test.text(/\w/)
+              .success( getButton('Next').enable() )
+              .failure( getButton('Next').disable() )
+              ._runPromises()
+        )
+    ).call()
+    ,
+
+    newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
+        .center()
+        .disable()
+        .print()
+        .wait()
+)
+
+newTrial('recordID',
+    newText('We collect your Prolific ID so that we can verify your participation and compensate you for completing this task. Please enter your Prolific ID below.<br /><br />')
+        .settings.css('margin-left', '50px')
+        .print()
+    ,
+    newTextInput('ProlificID')
+        .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
+                    .settings.css('margin-left', '50px')
+                    .settings.css('vertical-align', 'middle')
+                    .settings.css('height', '20pt'))
+        .settings.css('width', '30%')
+        .settings.css('height', '14pt')
+        .print()
+        .log()
+    ,
+    newFunction( () =>
+        $("textarea.PennController-ProlificID").bind('keyup', e=>
+            getTextInput('ProlificID').test.text(/\w/)
               .success( getButton('Send').enable() )
               .failure( getButton('Send').disable() )
               ._runPromises()
         )
     ).call()
     ,
-
-    newButton('Send', 'Send Results')
-        .before(newText('<br /><br />').print())
+    newButton('Send','Send Results')
+        .before(newText('<br />').print())
         .center()
-        .disable()
         .print()
+        .disable()
         .wait()
 )
 
