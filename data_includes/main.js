@@ -1,7 +1,7 @@
 PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 //PennController.DebugOff()
 
-function SepWithN(sep, main, n) {
+/*function SepWithN(sep, main, n) {
     this.args = [sep,main];
 
     this.run = function(arrays) {
@@ -24,7 +24,7 @@ function SepWithN(sep, main, n) {
         }
     }
 }
-function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }
+function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }*/
 
 PennController.SetCounter('setcounter');
 
