@@ -1,5 +1,5 @@
 PennController.ResetPrefix(null) // Shorten command names (keep this line here)
-//PennController.DebugOff()
+DebugOff()
 
 function SepWithN(sep, main, n) {
     this.args = [sep,main];
