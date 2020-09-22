@@ -243,7 +243,7 @@ PennController('feedback',
         .print()
     ,
 
-    /*newText('bot_instructions',
+    newText('bot_instructions',
             '<br /><br />Imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
@@ -262,7 +262,7 @@ PennController('feedback',
               ._runPromises()
         )
     ).call()
-    ,*/
+    ,
 
     newText('device_instructions', '<br /><br />What device/OS did you use to complete the experiment?<br /><br />')
         .settings.css('margin-left', '50px')
@@ -287,6 +287,7 @@ PennController('feedback',
         .wait()
     ,
     getButton('Send')
+        .enable()
         .wait()
     ,
 )
