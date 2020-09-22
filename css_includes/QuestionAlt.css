@@ -1,6 +1,8 @@
-.Question {
+.QuestionAlt {
     margin-left: 0;
     padding-left: 0;
+    font-size: 32px;
+    font-family: Verdana, Geneva, sans-serif;
 }
 .instructions-text {
     font-style: italic;

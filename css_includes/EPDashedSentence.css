@@ -1,6 +1,8 @@
 .sentence {
-     background-color: white;
-     clear: both;
+    font-family: Verdana, Geneva, sans-serif;
+    background-color: white;
+    clear: both;
+    font-size: 32px;
 }
 .question {
      padding-left: 0.6em;
