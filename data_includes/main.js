@@ -39,13 +39,20 @@ newTrial('consent',
         .checkboxWarning('You must consent to participate in order to continue.')
         .print()
     ,
+    newFunction( () =>
+        $("checkbox.consentcx").bind('mouseup', e=>
+            document.getElementById('consentcx').checked
+              .success( getButton('Next').enable() )
+              .failure( getButton('Next').disable() )
+              ._runPromises()
+        )
+    ).call()
+    ,
     newButton('Next', 'Next')
         .center()
         .print()
+        .disable()
         .wait()
-    ,
-    getHtml('consent')
-        .warn()
 )
 
 newHtml('instructions1', 'instructions1.html')
