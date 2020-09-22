@@ -36,15 +36,13 @@ Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instruction
 
 newTrial('consent',
     newHtml('consent', 'consent.html')
-        .checkboxWarning('You must consent to participate in order to continue.')
         .print()
     ,
     newFunction( () =>
-        $("checkbox.consentcx").bind('keyup', e=>
-            document.getElementById('consentcx').checked
-              .success( getButton('Next').enable() )
-              .failure( getButton('Next').disable() )
-              ._runPromises()
+        $("#consentcx").change(e => {
+                if(e.target.checked) getButton('Next').enable()._runPromises();
+                else getButton('Next').disable()._runPromises();
+            }
         )
     ).call()
     ,
