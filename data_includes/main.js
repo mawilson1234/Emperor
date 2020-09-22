@@ -310,6 +310,10 @@ Template('whif.csv', variable => ['trial_whif',
 )
 
 newTrial('feedback',
+    newText('That\'s it for the experiment! We have just a few follow-up questions that will help us interpret your responses.<br /><br />')
+        .settings.css('margin-left', '50px')
+        .print()
+    ,
     newText('feedback_instruction','What, if anything, stood out to you about the sentences that you saw?<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
@@ -361,7 +365,7 @@ newTrial('feedback',
 
 newTrial('botcheck',
     newText('bot_instructions',
-            '<br /><br />Imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
+            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
