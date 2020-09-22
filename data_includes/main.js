@@ -28,10 +28,10 @@ function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }*/
 
 PennController.SetCounter('setcounter');
 
-Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
+Sequence(/*'setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
     randomize('trial_prac'), 'post-practice',
     /*sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),*/
-    'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
+    'feedback'/*, 'botcheck', 'recordID', SendResults(), 'bye'*/)
 
 
 newTrial('consent',
@@ -293,30 +293,6 @@ newTrial('feedback',
         .settings.css('margin-left', '50px')
         .print()
     ,
-    newDropDown('device', 'Choose your device/OS')
-        .add('Windows laptop or desktop', 'Apple Macintosh laptop or desktop',
-             'Chrome OS laptop or desktop', 'Unix/Linux laptop or desktop',
-             'Other OS laptop or desktop', 'Other device')
-        .center()
-        .print()
-    ,
-    newButton('Next','Next')
-        .before(newText('<br /><br />').print())
-        .center()
-        .print()
-        .disable()
-    ,
-    getDropDown('device')
-        .wait()
-        .log()
-    ,
-    getButton('Next')
-        .enable()
-        .wait()
-    ,
-)
-
-newTrial('botcheck',
     newText('bot_instructions',
             '<br /><br />Imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
@@ -337,13 +313,28 @@ newTrial('botcheck',
         )
     ).call()
     ,
-
-    newButton('Next', 'Next')
+    newDropDown('device', 'Choose your device/OS')
+        .add('Windows laptop or desktop', 'Apple Macintosh laptop or desktop',
+             'Chrome OS laptop or desktop', 'Unix/Linux laptop or desktop',
+             'Other OS laptop or desktop', 'Other device')
+        .center()
+        .print()
+    ,
+    newFunction( () =>
+        $('select.PennController-device').change(e => 
+                getDropDown('device').selected()
+                    .success(getButton('Next').enable() )
+                    .failure(getButton('Next').disable() )
+                    ._runPromises()
+        )
+    ).call()
+    ,
+    newButton('Next','Next')
         .before(newText('<br /><br />').print())
         .center()
-        .disable()
         .print()
-        .wait()
+        .disable()
+    ,
 )
 
 newTrial('recordID',
