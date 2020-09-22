@@ -44,8 +44,6 @@ newTrial('recordID',
         .wait()
 )
 
-newHTML('')
-
 Template('practice.csv', variable => ['trial_prac',
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
