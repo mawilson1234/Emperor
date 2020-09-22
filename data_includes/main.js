@@ -47,6 +47,7 @@ newTrial('consent',
     ).call()
     ,
     newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
         .center()
         .print()
         .disable()
