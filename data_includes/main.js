@@ -287,7 +287,6 @@ PennController('feedback',
         .wait()
     ,
     getButton('Send')
-        .enable()
         .wait()
     ,
 )
