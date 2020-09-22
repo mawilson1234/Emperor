@@ -37,6 +37,7 @@ Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instruction
 newTrial('consent',
     newHtml('consent', 'consent.html')
         .print()
+        .log()
     ,
     newFunction( () =>
         $("#consentcx").change(e => {
@@ -54,13 +55,53 @@ newTrial('consent',
         .wait()
 )
 
-newHtml('instructions1', 'instructions1.html')
+newTrial('instructions1',
+    newHtml('instructions1', 'instructions1.html')
+        .print()
+        .log()
+    ,
+    newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
+        .center()
+        .print()
+        .wait()
+)
 
-newHtml('instructions2', 'instructions2.html')
+newTrial('instructions2',
+    newHtml('instructions2', 'instructions2.html')
+        .print()
+        .log()
+    ,
+    newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
+        .center()
+        .print()
+        .wait()
+)
 
-newHtml('instructions3', 'instructions3.html')
+newTrial('instructions3',
+    newHtml('instructions3', 'instructions3.html')
+        .print()
+        .log()
+    ,
+    newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
+        .center()
+        .print()
+        .wait()
+)
 
-newHtml('instructions4', 'instructions4.html')
+newTrial('instructions4',
+    newHtml('instructions4', 'instructions4.html')
+        .print()
+        .log()
+    ,
+    newButton('Next', 'Next')
+        .before(newText('<br /><br />').print())
+        .center()
+        .print()
+        .wait()
+)
 
 Template('practice.csv', variable => ['trial_prac',
     'Separator', {transfer: 1000,
