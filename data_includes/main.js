@@ -33,7 +33,11 @@ Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instruction
     /*sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),*/
     'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
 
-newHtml('consent', 'consent.html')
+
+newTrial('consent',
+    newHtml('consent', 'consent.html')
+        .print()
+)
 
 newHtml('instructions1', 'instructions1.html')
 
