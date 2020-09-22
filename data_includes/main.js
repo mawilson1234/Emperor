@@ -352,12 +352,12 @@ newTrial('recordID',
         .print()
     ,
     newTextInput('ProlificID')
-        .center()
         .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
         .settings.css('width', '20%')
         .settings.css('height', '14pt')
+        .cssContainer('text-align', 'center')
         .print()
         .log()
     ,
