@@ -40,7 +40,7 @@ newTrial('consent',
         .print()
     ,
     newFunction( () =>
-        $("checkbox.consentcx").bind('mouseup', e=>
+        $("checkbox.consentcx").bind('keyup', e=>
             document.getElementById('consentcx').checked
               .success( getButton('Next').enable() )
               .failure( getButton('Next').disable() )
