@@ -30,6 +30,7 @@ Template('practice.csv', variable => ['trial_prac',
                     timeout: 2000}
     ,
     'Separator', {transfer: 2000,  
+                  normalMessage: '',
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
