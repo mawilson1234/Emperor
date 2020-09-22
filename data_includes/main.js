@@ -36,8 +36,24 @@ Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instruction
 
 newTrial('consent',
     newHtml('consent', 'consent.html')
+        .checkboxWarning('You must consent to participate in order to continue.')
         .print()
+    ,
+    newFunction( () =>
+        $("checkbox.consent").bind('keyup', e=>
+            getTextInput('ProlificID').test.text(/\w/)
+              .success( getButton('Next').enable() )
+              .failure( getButton('Next').disable() )
+              ._runPromises()
+        )
+    ).call()
+    ,    
+    newButton('Next', 'Next')
+        .center()
+        .print()
+        .disable()
         .wait()
+    ,
 )
 
 newHtml('instructions1', 'instructions1.html')
