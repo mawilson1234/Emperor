@@ -254,10 +254,8 @@ PennController('feedback',
         .center()
         .print()
     ,
-    newText('<br /><br />')
-        .print()
-    ,
     newButton('Next','Next')
+        .before(newText('<br />').print())
         .center()
         .print()
         .disable()
@@ -294,7 +292,7 @@ PennController('botcheck',
     ,
 
     newButton('Send', 'Send Results')
-        .before(newText('<br /><br />').center().print())
+        .before(newText('<br /><br />').print())
         .center()
         .disable()
         .print()
