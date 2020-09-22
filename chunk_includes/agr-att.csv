@@ -73,7 +73,7 @@ F,12,Ungram,Match,Where,The hallway where the guard are cautiously patrolling is
 A,12,Ungram,Mismatch,Where,The hallways where the guard are cautiously patrolling are equipped with security cameras.,
 A,13,Gram,Match,That,The burner that the chef is meticulously simmering risotto on is precisely calibrated for heat.,maybe food gets some distibutive reading in this one which could affect attraction?
 B,13,Gram,Mismatch,That,The burners that the chef is meticulously simmering risotto on are precisely calibrated for heat.,alternative: The stews that the cheff is quitely cooking lentils in have a wondefull smell
-C,13,Ungram,Match,That,The burner that the chef are meticulously simmering risotto on is precisly calibrated for heat.,
+C,13,Ungram,Match,That,The burner that the chef are meticulously simmering risotto on is precisely calibrated for heat.,
 D,13,Ungram,Mismatch,That,The burners that the chef are meticulously simmering risotto on are precisely calibrated for heat.,
 E,13,Ungram,Match,Where,The burner where the chef are meticulously simmering risotto is precisely calibrated for heat.,
 F,13,Ungram,Mismatch,Where,The burners where the chef are meticulously simmering risotto are precisely calibrated for heat.,
