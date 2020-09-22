@@ -17,7 +17,7 @@ function SepWithN(sep, main, n) {
             while (main.length){
                 for (let i = 0; i < n && main.length>0; i++)
                     newArray.push(main.pop());
-                for (let j = 0; j < sep.length; ++j)
+                for (let j = 0; j < sep.length && main.length > 0; ++j)
                     newArray.push(sep[j]);
             }
             return newArray;
