@@ -37,6 +37,7 @@ Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instruction
 newTrial('consent',
     newHtml('consent', 'consent.html')
         .print()
+        .wait()
 )
 
 newHtml('instructions1', 'instructions1.html')
