@@ -147,6 +147,7 @@ newTrial('break',
         .print()
     ,
     newButton('click', 'Click here to return to the experiment')
+        .before(newText('<br /><br />').print())
         .center()
         .print()
         .wait()
