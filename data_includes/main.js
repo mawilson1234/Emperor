@@ -3,13 +3,19 @@ PennController.ResetPrefix(null) // Shorten command names (keep this line here)
 
 PennController.SetCounter('setcounter');
 
-Sequence(/*'setcounter', 'consent', 'instruction', randomize('trial_prac'), 'instruction2',
+Sequence(/*'setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 
+         */randomize('trial_prac')/*, 'post-practice',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
+         'feedback', 'botcheck', 'recordID', SendResults(), 'bye'*/)
 
 newHtml('consent', 'consent.html')
 
+newHtml('instructions1', 'instructions1.html')
+
 Template('practice.csv', variable => ['trial_prac',
+    'Separator', {transfer: 1000,
+                  normalMessage: '+'}
+    ,
     'EPDashedSentence', {s: variable.Sentence, 
                          mode: 'speeded acceptability', 
                          display: 'in place', 
@@ -23,8 +29,7 @@ Template('practice.csv', variable => ['trial_prac',
                     presentHorizontally: true, 
                     timeout: 2000}
     ,
-    'Separator', {transfer: 2000, 
-                  normalMessage: '+', 
+    'Separator', {transfer: 2000,  
                   errorMessage: 'Timed out. Please respond more quickly.'}
     ,
     'PennController', PennController()
@@ -32,13 +37,13 @@ Template('practice.csv', variable => ['trial_prac',
    ]
 )
 
-newTrial('instruction2',
-    newText('Instr2', 'POST-PRACTICE INSTRUCTIONS GO HERE<br /><br />')
+newTrial('post-practice',
+    newText('post-pr', 'That\'s it for practice! Click below when you\'re ready to begin the experiment.<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
 
-    newButton('Click','Click here to begin the experiment')
+    newButton('Click', 'Click here to begin the experiment')
         .center()
         .print()
         .wait()
@@ -185,7 +190,7 @@ Template('whif.csv', variable => ['trial_whif',
    ]
 )
 
-PennController('feedback',
+newTrial('feedback',
     newText('feedback_instruction','What, if anything, stood out to you about the sentences that you saw?<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
@@ -227,6 +232,7 @@ PennController('feedback',
     ,
     getDropDown('device')
         .wait()
+        .log()
     ,
     getButton('Next')
         .enable()
@@ -234,7 +240,7 @@ PennController('feedback',
     ,
 )
 
-PennController('botcheck',
+newTrial('botcheck',
     newText('bot_instructions',
             '<br /><br />Imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
@@ -289,14 +295,13 @@ newTrial('recordID',
     ).call()
     ,
     newButton('Send','Send Results')
-        .before(newText('<br />').print())
+        .before(newText('<br /><br />').print())
         .center()
         .print()
         .disable()
         .wait()
 )
 
-// Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
 newTrial('bye',
     newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">https://app.prolific.co/submissions/complete?cc=XXXXXXX</a>.')
         .print(),
@@ -304,5 +309,5 @@ newTrial('bye',
     newButton()
         .wait()  // Wait for a click on a non-displayed button = wait here forever
 )
-.setOption('countsForProgressBar' , false)
+.setOption('countsForProgressBar' , false) 
 // Make sure the progress bar is full upon reaching this last (non-)trial
