@@ -7,7 +7,7 @@ Sequence(/*'setcounter', 'consent', 'recordID', 'instruction', randomize('trial_
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
          */'feedback'/*, SendResults(), 'bye'*/)
 
-newHTML('consent', 'consent.html')
+newHtml('consent', 'consent.html')
 
 newTrial('recordID',
     newText('Please enter your Prolific ID here: <br /><br />')
