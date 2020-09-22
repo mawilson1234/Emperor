@@ -39,15 +39,9 @@ newTrial('consent',
         .checkboxWarning('You must consent to participate in order to continue.')
         .print()
     ,
-    newFunction( () =>
-        $("checkbox.consent").bind('keyup', e=>
-            getTextInput('ProlificID').test.text(/\w/)
-              .success( getButton('Next').enable() )
-              .failure( getButton('Next').disable() )
-              ._runPromises()
-        )
-    ).call()
-    ,    
+    getHtml('consent')
+        .warn()
+    , 
     newButton('Next', 'Next')
         .center()
         .print()
