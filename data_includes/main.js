@@ -39,15 +39,13 @@ newTrial('consent',
         .checkboxWarning('You must consent to participate in order to continue.')
         .print()
     ,
-    getHtml('consent')
-        .warn()
-    , 
     newButton('Next', 'Next')
         .center()
         .print()
-        .disable()
         .wait()
     ,
+    getHtml('consent')
+        .warn()
 )
 
 newHtml('instructions1', 'instructions1.html')
