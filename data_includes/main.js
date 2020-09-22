@@ -5,7 +5,7 @@ PennController.SetCounter('setcounter');
 
 Sequence(/*'setcounter', 'consent', 'instruction', randomize('trial_prac'), 'instruction2',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback', 'botcheck', 'recordID', sendResults(), 'bye')
+         */'feedback', 'botcheck', 'recordID', 'bye')
 
 newHtml('consent', 'consent.html')
 
