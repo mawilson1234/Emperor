@@ -277,14 +277,16 @@ PennController('feedback',
     ,
     newFunction( () =>
         $('dropdown.PennController-device').bind('keyup', e=>
-            getDropDown('device').test.text('Choose your device/OS')
+            getDropDown('device').test.selected()
             .success( getButton('Send').disable() )
             .failure( getButton('Send').enable() )
             ._runPromises()
         )
     ).call()
     ,
-
+    
+    newText('<br /><br />')
+    ,
     newButton('Send','Send Results')
         .center()
         .print()
