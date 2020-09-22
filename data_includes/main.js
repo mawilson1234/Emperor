@@ -131,7 +131,7 @@ Template('practice.csv', variable => ['trial_prac',
 
 newTrial('post-practice',
     newText('post-pr', 'That\'s it for practice! Click below when you\'re ready to begin the experiment.<br /><br />')
-        .settings.css('margin-left', '50px')
+        .center()
         .print()
     ,
 
