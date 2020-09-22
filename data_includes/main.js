@@ -276,10 +276,10 @@ PennController('feedback',
         .print()
     ,
     newFunction( () =>
-        $('dropdown.PennController-device').bind('keyup', e=>
+        $('dropdown.PennController-device').bind('mouseup', e=>
             getDropDown('device').test.selected()
-            .success( getButton('Send').disable() )
-            .failure( getButton('Send').enable() )
+            .success( getButton('Send').enable() )
+            .failure( getButton('Send').disable() )
             ._runPromises()
         )
     ).call()
