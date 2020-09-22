@@ -275,16 +275,6 @@ PennController('feedback',
         .center()
         .print()
     ,
-    newFunction( () =>
-        $('dropdown.PennController-device').bind('onchange', e=>
-            getDropDown('device').test.selected()
-            .success( getButton('Send').enable() )
-            .failure( getButton('Send').disable() )
-            ._runPromises()
-        )
-    ).call()
-    ,
-
     newText('<br /><br />')
         .print()
     ,
@@ -292,7 +282,14 @@ PennController('feedback',
         .center()
         .print()
         .disable()
+    ,
+    getDropDown('device')
         .wait()
+    ,
+    getButton('Send')
+        .enable()
+        .wait()
+    ,
 )
 
 // Spaces and linebreaks don't matter to the script: we've only been using them for the sake of readability
