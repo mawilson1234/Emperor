@@ -5,7 +5,7 @@ PennController.SetCounter('setcounter');
 
 Sequence(/*'setcounter', 'consent', 'instruction', randomize('trial_prac'), 'instruction2',
          rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'),
-         */'feedback', 'botcheck', 'recordID', 'bye')
+         */'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
 
 newHtml('consent', 'consent.html')
 
@@ -270,8 +270,8 @@ newTrial('recordID',
         .print()
     ,
     newTextInput('ProlificID')
+        .center()
         .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
-                    .settings.css('margin-left', '50px')
                     .settings.css('vertical-align', 'middle')
                     .settings.css('height', '20pt'))
         .settings.css('width', '20%')
