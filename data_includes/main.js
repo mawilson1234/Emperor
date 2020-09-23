@@ -378,6 +378,7 @@ newTrial('feedback',
     ).call()
     ,
     getButton('Next')
+        .wait(getTextInput('botcheck').testNot.text(''))
         .wait()
 )
 
