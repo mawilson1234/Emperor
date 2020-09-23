@@ -28,10 +28,10 @@ function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }
 
 SetCounter('setcounter');
 
-Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
+Sequence(/*'setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
     randomize('trial_prac'), 'post-practice',
     sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),
-    'feedback', 'botcheck', 'recordID', SendResults(), 'bye')
+    */'feedback'/*, 'botcheck', SendResults(), 'bye'*/)
 
 
 newTrial('consent',
@@ -336,6 +336,17 @@ newTrial('feedback',
         .print()
     ,
 
+    newText('bot_instructions',
+            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
+        .settings.css('margin-left', '50px')
+        .print()
+    ,
+    newTextInput('botcheck')
+        .cssContainer('text-align', 'center')
+        .lines(10)
+        .print()
+        .log()
+    ,
     newText('device_instructions', '<br /><br />What device/OS did you use to complete the experiment?<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
@@ -357,13 +368,17 @@ newTrial('feedback',
         .wait()
         .log()
     ,
-    getButton('Next')
-        .enable()
-        .wait()
-    ,
+    newFunction( () =>
+        $("textarea.PennController-botcheck").bind('keyup', e=>
+            getTextInput('botcheck').test.text(/\w/)
+              .success( getButton('Next').enable() )
+              .failure( getButton('Next').disable() )
+              ._runPromises()
+        )
+    ).call()
 )
 
-newTrial('botcheck',
+/*newTrial('botcheck',
     newText('bot_instructions',
             'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
@@ -391,39 +406,7 @@ newTrial('botcheck',
         .disable()
         .print()
         .wait()
-)
-
-newTrial('recordID',
-    newText('We collect your Prolific ID so that we can verify your participation and compensate you for completing this task. Please enter your Prolific ID below.<br /><br />')
-        .settings.css('margin-left', '50px')
-        .print()
-    ,
-    newTextInput('ProlificID')
-        .before(newText('ID', 'Your Prolific ID:&nbsp;<p>')
-                    .settings.css('vertical-align', 'middle')
-                    .settings.css('height', '20pt'))
-        .settings.css('width', '20%')
-        .settings.css('height', '14pt')
-        .cssContainer('text-align', 'center')
-        .print()
-        .log()
-    ,
-    newFunction( () =>
-        $("textarea.PennController-ProlificID").bind('keyup', e=>
-            getTextInput('ProlificID').test.text(/\w/)
-              .success( getButton('Send').enable() )
-              .failure( getButton('Send').disable() )
-              ._runPromises()
-        )
-    ).call()
-    ,
-    newButton('Send','Send Results')
-        .before(newText('<br /><br />').print())
-        .center()
-        .print()
-        .disable()
-        .wait()
-)
+)*/
 
 newTrial('bye',
     newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">https://app.prolific.co/submissions/complete?cc=XXXXXXX</a>.')
