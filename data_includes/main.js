@@ -364,21 +364,18 @@ newTrial('feedback',
         .print()
         .disable()
     ,
-    getDropDown('device')
-        .wait()
-        .log()
-    ,
     newFunction( () =>
-        $("textarea.PennController-botcheck").bind('keyup', e=>
+        $("textarea.PennController-botcheck").bind('keyup', e=> {
             getTextInput('botcheck').test.text(/\w/)
-              .success( getButton('Next').enable() )
+              .success( getDropDown('device').test.selected
+                            .success(getButton('Next').enable() ))
               .failure( getButton('Next').disable() )
               ._runPromises()
+            }
         )
     ).call()
     ,
     getButton('Next')
-        .wait(getTextInput('botcheck').testNot.text(''))
         .wait()
 )
 
