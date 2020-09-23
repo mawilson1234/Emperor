@@ -412,7 +412,7 @@ newTrial('botcheck',
 )
 
 newTrial('bye',
-    newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=XXXXXXX">https://app.prolific.co/submissions/complete?cc=XXXXXXX</a>.')
+    newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=6CC6F58A">https://app.prolific.co/submissions/complete?cc=6CC6F58A</a>.')
         .print(),
         
     newButton()
