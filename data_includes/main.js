@@ -71,6 +71,7 @@ newTrial('instructions1',
     newButton('Next', 'Next')
         .before(newText('<br /><br />').print())
         .center()
+        .disable()
         .print()
         .wait()
 )
