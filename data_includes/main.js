@@ -65,7 +65,12 @@ newTrial('instructions1',
         .before(newText('<br /><br />').print())
         .center()
         .print()
-        .wait(getHtml('instructions1').test.complete())
+        .wait(getHtml('instructions1')
+                .test.complete()
+                .failure(getHtml('instructions1')
+                            .warn()
+                )
+        )
 )
 
 newTrial('instructions2',
