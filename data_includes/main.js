@@ -376,6 +376,9 @@ newTrial('feedback',
               ._runPromises()
         )
     ).call()
+    ,
+    getButton('Next')
+        .wait()
 )
 
 /*newTrial('botcheck',
