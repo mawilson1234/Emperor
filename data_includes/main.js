@@ -61,9 +61,8 @@ newTrial('instructions1',
         .log()
     ,
     newFunction( () =>
-        $("#start").change(e => {
-                if(e.target.checked) getButton('Next').enable()._runPromises();
-                else getButton('Next').disable()._runPromises();
+        $("#start").change(function() {
+                getButton('Next').enable()._runPromises();
             }
         )
     ).call()
@@ -71,8 +70,8 @@ newTrial('instructions1',
     newButton('Next', 'Next')
         .before(newText('<br /><br />').print())
         .center()
-        .disable()
         .print()
+        .disable()
         .wait()
 )
 
