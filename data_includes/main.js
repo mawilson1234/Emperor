@@ -75,6 +75,7 @@ newTrial('instructions1',
 
 newTrial('instructions2',
     newHtml('instructions2', 'instructions2.html')
+        .radioWarning('You must select an option for \'%name%\'.')
         .print()
         .log()
     ,
@@ -82,11 +83,17 @@ newTrial('instructions2',
         .before(newText('<br /><br />').print())
         .center()
         .print()
-        .wait()
+        .wait(getHtml('instructions2')
+                .test.complete()
+                .failure(getHtml('instructions2')
+                            .warn()
+                )
+        )
 )
 
 newTrial('instructions3',
     newHtml('instructions3', 'instructions3.html')
+        .radioWarning('You must select an option for \'%name%\'.')
         .print()
         .log()
     ,
@@ -94,7 +101,12 @@ newTrial('instructions3',
         .before(newText('<br /><br />').print())
         .center()
         .print()
-        .wait()
+        .wait(getHtml('instructions3')
+                .test.complete()
+                .failure(getHtml('instructions3')
+                            .warn()
+                )
+        )
 )
 
 newTrial('instructions4',
