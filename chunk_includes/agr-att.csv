@@ -36,11 +36,11 @@ E,6,Ungram,Mismatch,That,The gardens that the botanist are currently collecting 
 F,6,Ungram,Match,Where,The garden where the botanist are currently collecting specimens is home to many exotic plants.,
 A,6,Ungram,Mismatch,Where,The gardens where the botanist are currently collecting specimens are home to many exotic plants.,
 A,7,Gram,Match,That,The ruin that the archaeologist was meticulously excavating artifacts in was the site of important cultural events.,
-B,7,Gram,Mismatch,That,The ruins that the archaelogist was meticulously excavating artifacts in were the site of important cultural events.,
+B,7,Gram,Mismatch,That,The ruins that the archaeologist was meticulously excavating artifacts in were the site of important cultural events.,
 C,7,Ungram,Match,That,The ruin that the archaeologist were meticulously excavating artifacts in was the site of important cultural events.,
 D,7,Ungram,Mismatch,That,The ruins that the archaeologist were meticulously excavating artifacts in were the site of important cultural events.,
 E,7,Ungram,Match,Where,The ruin where the archaeologist were meticulously excavating artifacts was the site of important cultural events.,
-F,7,Ungram,Mismatch,Where,The ruins where the archaelogist were meticulously excavating artifacts were the site of important cultural events.,
+F,7,Ungram,Mismatch,Where,The ruins where the archaeologist were meticulously excavating artifacts were the site of important cultural events.,
 F,8,Gram,Match,Where,The library where the mayor is enthusiastically promoting educational events is in desperate need of funding.,
 A,8,Gram,Mismatch,Where,The libraries where the mayor is enthusiastically promoting educational events are in desperate need of funding.,
 B,8,Ungram,Match,That,The library that the mayor are enthusiastically promoting educational events at is in desperate need of funding.,
@@ -71,14 +71,14 @@ D,12,Ungram,Match,That,The hallway that the guard are cautiously patrolling in i
 E,12,Ungram,Mismatch,That,The hallways that the guard are cautiously patrolling in are equipped with security cameras.,
 F,12,Ungram,Match,Where,The hallway where the guard are cautiously patrolling is equipped with security cameras.,
 A,12,Ungram,Mismatch,Where,The hallways where the guard are cautiously patrolling are equipped with security cameras.,
-A,13,Gram,Match,That,The burner that the chef is meticulously simmering risotto on is precisely calibrated for heat.,maybe food gets some distibutive reading in this one which could affect attraction?
-B,13,Gram,Mismatch,That,The burners that the chef is meticulously simmering risotto on are precisely calibrated for heat.,alternative: The stews that the cheff is quitely cooking lentils in have a wondefull smell
+A,13,Gram,Match,That,The burner that the chef is meticulously simmering risotto on is precisely calibrated for heat.,maybe food gets some distributive reading in this one which could affect attraction?
+B,13,Gram,Mismatch,That,The burners that the chef is meticulously simmering risotto on are precisely calibrated for heat.,alternative: The stews that the chef is quietly cooking lentils in have a wonderful smell
 C,13,Ungram,Match,That,The burner that the chef are meticulously simmering risotto on is precisely calibrated for heat.,
 D,13,Ungram,Mismatch,That,The burners that the chef are meticulously simmering risotto on are precisely calibrated for heat.,
 E,13,Ungram,Match,Where,The burner where the chef are meticulously simmering risotto is precisely calibrated for heat.,
 F,13,Ungram,Mismatch,Where,The burners where the chef are meticulously simmering risotto are precisely calibrated for heat.,
 F,14,Gram,Match,Where,The orchard where the gardener is carefully cultivating cherry trees looks beautiful in the evening light.,same here
-A,14,Gram,Mismatch,Where,The orchards where the gardener is carefully cultivating cherry trees look beautiful in the evening light.,alternative: The orchards where the gardner carefully cultivates cherry trees in look beautiful in the evening light
+A,14,Gram,Mismatch,Where,The orchards where the gardener is carefully cultivating cherry trees look beautiful in the evening light.,alternative: The orchards where the gardener carefully cultivates cherry trees in look beautiful in the evening light
 B,14,Ungram,Match,That,The orchard that the gardener are carefully cultivating cherry trees in looks beautiful in the evening light.,
 C,14,Ungram,Mismatch,That,The orchards that the gardener are carefully cultivating cherry trees in look beautiful in the evening light.,
 D,14,Ungram,Match,Where,The orchard where the gardener are carefully cultivating cherry trees looks beautiful in the evening light.,
@@ -102,7 +102,7 @@ F,17,Ungram,Mismatch,That,The sheds that the inventor are constantly vacuuming i
 A,17,Ungram,Match,Where,The shed where the inventor are constantly vacuuming is tidily organized.,
 B,17,Ungram,Mismatch,Where,The sheds where the inventor are constantly vacuuming are tidily organized.,
 B,18,Gram,Match,Where,The laboratory where the scientist is frequently vacuuming is full of unused devices.,
-C,18,Gram,Mismatch,Where,The laboratories where the scientist is frequenly vacuuming are full of unused devices.,
+C,18,Gram,Mismatch,Where,The laboratories where the scientist is frequently vacuuming are full of unused devices.,
 D,18,Ungram,Match,That,The laboratory that the scientist are frequently vacuuming in is full of unused devices.,
 E,18,Ungram,Mismatch,That,The laboratories that the scientist are frequently vacuuming in are full of unused devices.,
 F,18,Ungram,Match,Where,The laboratory where the scientist are frequently vacuuming is full of unused devices.,
@@ -115,7 +115,7 @@ E,19,Ungram,Match,Where,The sketchpad where the student are obsessively doodling
 F,19,Ungram,Mismatch,Where,The sketchpads where the student are obsessively doodling are tattered and worn.,
 F,20,Gram,Match,Where,The wall where the toddler is excitedly doodling could use a new coat of paint.,
 A,20,Gram,Mismatch,Where,The walls where the toddler is excitedly doodling could use a new coat of paint.,
-B,20,Ungram,Match,That,The wall that the toddler are excitedly dooling on could use a new coat of paint.,
+B,20,Ungram,Match,That,The wall that the toddler are excitedly doodling on could use a new coat of paint.,
 C,20,Ungram,Mismatch,That,The walls that the toddler are excitedly doodling on could use a new coat of paint.,
 D,20,Ungram,Match,Where,The wall where the toddler are excitedly doodling could use a new coat of paint.,
 E,20,Ungram,Mismatch,Where,The walls where the toddler are excitedly doodling could use a new coat of paint.,
@@ -144,20 +144,20 @@ E,24,Ungram,Mismatch,That,The caves that the camper are cautiously nestling in a
 F,24,Ungram,Match,Where,The cave where the camper are cautiously nestling is unable to keep out the rain.,
 A,24,Ungram,Mismatch,Where,The caves where the camper are cautiously nestling are unable to keep out the rain.,
 A,25,Gram,Match,That,The box that the collector is secretly storing ancient books in is kept in the basement.,this is the same set as 14
-B,25,Gram,Mismatch,That,The boxes that the collector is secretly storing ancient books in are kept in the basement.,alternative: The quarries that the explorer is closely inspecting minerals in are very danguous
+B,25,Gram,Mismatch,That,The boxes that the collector is secretly storing ancient books in are kept in the basement.,alternative: The quarries that the explorer is closely inspecting minerals in are very dangerous
 C,25,Ungram,Match,That,The box that the collector are secretly storing ancient books in is kept in the basement.,or: The lectures that the professor is regularly delivering jokes in are beloved by students
 D,25,Ungram,Mismatch,That,The boxes that the collector are secretly storing ancient books in are kept in the basement.,or: The books that the specialist is praising the new diet in are on the bestsellers list
-E,25,Ungram,Match,Where,The box where the collector are secretly storing ancient books is kept in the basement.,or: The meetings that the old lady is cheerfully orginizing card games in will be a great success tea parties
-F,25,Ungram,Mismatch,Where,The boxes where the collector are secretly storing ancient books are kept in the basement.,or: The documents that the officer is thouroughly describing the insident in are longs and tidious
+E,25,Ungram,Match,Where,The box where the collector are secretly storing ancient books is kept in the basement.,or: The meetings that the old lady is cheerfully organizing card games in will be a great success tea parties
+F,25,Ungram,Mismatch,Where,The boxes where the collector are secretly storing ancient books are kept in the basement.,or: The documents that the officer is thoroughly describing the incident in are longs and tedious
 F,26,Gram,Match,Where,The aisle where the attendant is vigorously mopping is not currently open to customers.,or: The drawers that the poet is secretly locking unfinished work in are in the corner of the office
-A,26,Gram,Mismatch,Where,The aisles where the attendant is vigorously mopping are not currently open to customers.,or: The boxes that the collector is meticulously sloring aincient books in are lept in the basement
+A,26,Gram,Mismatch,Where,The aisles where the attendant is vigorously mopping are not currently open to customers.,or: The boxes that the collector is meticulously storing ancient books in are kept in the basement
 B,26,Ungram,Match,That,The aisle that the attendant are vigorously mopping in is not currently open to customers.,
 C,26,Ungram,Mismatch,That,The aisles that the attendant are vigorously mopping in are not currently open to customers.,
 D,26,Ungram,Match,Where,The aisle where the attendant are vigorously mopping is not currently open to customers.,
 E,26,Ungram,Mismatch,Where,The aisles where the attendant are vigorously mopping are not currently open to customers.,
 E,27,Gram,Match,That,The branch that the monkey is exuberantly swinging from is gnarled and twisted.,
 F,27,Gram,Mismatch,That,The branches that the monkey is exuberantly swinging from are gnarled and twisted.,
-A,27,Ungram,Match,That,The branch that the monkery are exuberantly swinging from is gnarled and twisted.,
+A,27,Ungram,Match,That,The branch that the monkey are exuberantly swinging from is gnarled and twisted.,
 B,27,Ungram,Mismatch,That,The branches that the monkey are exuberantly swinging from are gnarled and twisted.,
 C,27,Ungram,Match,Where,The branch where the monkey are exuberantly swinging is gnarled and twisted.,
 D,27,Ungram,Mismatch,Where,The branches where the monkey are exuberantly swinging are gnarled and twisted.,

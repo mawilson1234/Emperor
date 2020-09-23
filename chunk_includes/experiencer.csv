@@ -44,7 +44,7 @@ D,65,ObjExp,interest,Active,That's the stockbroker that the celebrity really int
 A,65,SubjExp,envy,Passive,That's the celebrity that the stockbroker is really envied by because of his vast wealth.,412,6,Negative,NP
 B,65,ObjExp,interest,Passive,That's the celebrity that the stockbroker is really interested by because of his vast wealth.,441,10,Positive,NP
 B,66,SubjExp,envy,Active,That's the farmer that the shopkeeper really envies because of his land holdings.,412,6,Negative,NP
-C,66,ObjExp,interest,Passive,That's the shopkeepr that the farmer is really interested by because of his land holdings.,441,10,Positive,NP
+C,66,ObjExp,interest,Passive,That's the shopkeeper that the farmer is really interested by because of his land holdings.,441,10,Positive,NP
 D,66,SubjExp,envy,Passive,That's the shopkeeper that the farmer is really envied by because of his land holdings.,412,6,Negative,NP
 A,66,ObjExp,interest,Active,That's the farmer that the shopkeeper really interests because of his land holdings.,441,9,Positive,NP
 A,67,SubjExp,cherish,Active,That's the daughter that the father particularly cherishes in spite of her lackadaisical attitude.,270,9,Positive,PN
@@ -99,10 +99,10 @@ A,79,SubjExp,idolize,Active,That's the priest that the reporter particularly ido
 B,79,ObjExp,unnerve,Active,That's the priest that the reporter particularly unnerves due to his behavior at press conferences.,35,8,Negative,PN
 C,79,SubjExp,idolize,Passive,That's the reporter that the priest is particularly idolized by due to his behavior at press conferences.,31,8,Positive,PN
 D,79,ObjExp,unnerve,Passive,That's the reporter that the priest is particularly unnerved by due to his behavior at press conferences.,35,8,Negative,PN
-D,80,SubjExp,idolize,Active,That's the butler that the millionaire particularly idolizes due to his distinctive manerisms.,31,8,Positive,PN
-A,80,ObjExp,unnerve,Passive,That's the millionaire that the butler is particularly unnerved by due to his distinctive manerisms.,35,8,Negative,PN
-B,80,SubjExp,idolize,Passive,That's the millionaire that the butler is particularly idolized by due to his distinctive manerisms.,31,8,Positive,PN
-C,80,ObjExp,unnerve,Active,That's the butler that the millionaire particularly unnerves due to his distinctive manerisms.,35,8,Negative,PN
+D,80,SubjExp,idolize,Active,That's the butler that the millionaire particularly idolizes due to his distinctive mannerisms.,31,8,Positive,PN
+A,80,ObjExp,unnerve,Passive,That's the millionaire that the butler is particularly unnerved by due to his distinctive mannerisms.,35,8,Negative,PN
+B,80,SubjExp,idolize,Passive,That's the millionaire that the butler is particularly idolized by due to his distinctive mannerisms.,31,8,Positive,PN
+C,80,ObjExp,unnerve,Active,That's the butler that the millionaire particularly unnerves due to his distinctive mannerisms.,35,8,Negative,PN
 C,81,SubjExp,distrust,Active,That's the scientist that the artist strongly distrusts on account of his being late for meetings.,23,9,Negative,NN
 D,81,ObjExp,perturb,Active,That's the scientist that the artist strongly perturbs on account of his being late for meetings.,15,8,Negative,NN
 A,81,SubjExp,distrust,Passive,That's the artist that the scientist is strongly distrusted by on account of his being late for meetings.,23,10,Negative,NN
