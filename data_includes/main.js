@@ -57,22 +57,15 @@ newTrial('consent',
 
 newTrial('instructions1',
     newHtml('instructions1', 'instructions1.html')
+        .radioWarning('You must select an option for \'%name%\'.')
         .print()
         .log()
-    ,
-    newFunction( () =>
-        $("#start").change(function() {
-                getButton('Next').enable()._runPromises();
-            }
-        )
-    ).call()
     ,
     newButton('Next', 'Next')
         .before(newText('<br /><br />').print())
         .center()
         .print()
-        .disable()
-        .wait()
+        .wait(getHtml('instructions1').test.complete())
 )
 
 newTrial('instructions2',
