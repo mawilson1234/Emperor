@@ -28,10 +28,10 @@ function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }
 
 SetCounter('setcounter');
 
-Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
+Sequence(/*'setcounter', 'consent', */'instructions1'/*, 'instructions2', 'instructions3', 'instructions4',
     randomize('trial_prac'), 'post-practice',
     sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),
-    'feedback', 'botcheck', SendResults(), 'bye')
+    'feedback', 'botcheck', SendResults(), 'bye'*/)
 
 
 newTrial('consent',
@@ -59,6 +59,14 @@ newTrial('instructions1',
     newHtml('instructions1', 'instructions1.html')
         .print()
         .log()
+    ,
+    newFunction( () =>
+        $("#start").change(e => {
+                if(e.target.checked) getButton('Next').enable()._runPromises();
+                else getButton('Next').disable()._runPromises();
+            }
+        )
+    ).call()
     ,
     newButton('Next', 'Next')
         .before(newText('<br /><br />').print())
