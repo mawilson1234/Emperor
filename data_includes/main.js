@@ -383,7 +383,7 @@ newTrial('feedback',
 
 newTrial('botcheck',
     newText('bot_instructions',
-            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
+            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall.<br />Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
         .settings.css('margin-left', '50px')
         .print()
     ,
