@@ -149,7 +149,8 @@ Template('practice.csv', variable => ['trial_prac',
 
 newTrial('post-practice',
     newText('post-pr', 'That\'s it for practice! Click below when you\'re ready to begin the experiment.<br /><br />')
-        .center()
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
 
@@ -161,7 +162,8 @@ newTrial('post-practice',
 
 newTrial('break',
     newText('You may now take a short break. Click below when you are ready to return to the experiment.')
-        .center()
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newButton('click', 'Click here to return to the experiment')
@@ -329,11 +331,13 @@ Template('whif.csv', variable => ['trial_whif',
 
 newTrial('feedback',
     newText('That\'s it for the experiment! We have just a few follow-up questions that will help us interpret your responses.<br /><br />')
-        .settings.css('margin-left', '50px')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newText('feedback_instruction','What, if anything, stood out to you about the sentences that you saw?<br /><br />')
-        .settings.css('margin-left', '50px')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newTextInput('feedback')
@@ -344,7 +348,8 @@ newTrial('feedback',
     ,
 
     newText('difficulties_instructions', '<br /><br />Did you experience any difficulties (technical or otherwise) in doing the experiment? <br /><br />')
-        .settings.css('margin-left', '50px')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newTextInput('difficulties')
@@ -355,7 +360,8 @@ newTrial('feedback',
     ,
 
     newText('device_instructions', '<br /><br />What device/OS did you use to complete the experiment?<br /><br />')
-        .settings.css('margin-left', '50px')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newDropDown('device', 'Choose your device/OS')
@@ -383,8 +389,9 @@ newTrial('feedback',
 
 newTrial('botcheck',
     newText('bot_instructions',
-            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall.<br />Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
-        .settings.css('margin-left', '50px')
+            'Respond to the following prompt to show that you are not a bot: imagine you drove or walked from your house to the closest major shopping mall. Describe the most boring thing and the most interesting thing you would see along the way.<br /><br />')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print()
     ,
     newTextInput('botcheck')
@@ -412,7 +419,9 @@ newTrial('botcheck',
 )
 
 newTrial('bye',
-    newText('Thank you for your participation! Please go to the following web page to verify your participation: <a href="https://app.prolific.co/submissions/complete?cc=6CC6F58A">https://app.prolific.co/submissions/complete?cc=6CC6F58A</a>.')
+    newText('Thank you for your participation! Please go to the following web page to verify that you have completed the experiment: <a href="https://app.prolific.co/submissions/complete?cc=6CC6F58A">https://app.prolific.co/submissions/complete?cc=6CC6F58A</a>.')
+        .settings.css('width', '40em')
+        .settings.css('text-align', 'justify')
         .print(),
         
     newButton()
