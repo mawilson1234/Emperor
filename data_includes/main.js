@@ -28,6 +28,8 @@ function sepWithN(sep, main, n) { return new SepWithN(sep, main, n); }
 
 SetCounter('setcounter')
 
+var counterOverride = 6
+
 Sequence('setcounter', 'consent', 'instructions1', 'instructions2', 'instructions3', 'instructions4',
     randomize('trial_prac'), 'post-practice',
     sepWithN('break', rshuffle('trial_agr-att', 'trial_that', 'trial_experiencer', 'trial_filler', 'trial_whif'), 43),
